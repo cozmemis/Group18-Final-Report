@@ -1,4 +1,4 @@
-# CS7641 Project Proposal - Group 18
+# Patient Length of Stay Prediction with Primary Admission Information (Group 18)
 
 Authors: Cagri Ozmemis, Hardik Dhaval Patel, Max Teng Pan, Varun Ramakrishnan
 
