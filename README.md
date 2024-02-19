@@ -11,7 +11,7 @@ Our problem centers on predicting patient length of stay with initial informatio
 
 ![inpatient image](https://intermountainhealthcare.org/-/media/images/images-sc9/medical-specialties/behavioral-health/hospital-patient-16x9.ashx?mw=500)
 
-<small><font color="#777777"><i>Image Source: [Intermountain Healthcare](https://intermountainhealthcare.org/medical-specialties/behavioral-health/)</i></font></small>
+Image Source: [Intermountain Healthcare](https://intermountainhealthcare.org/medical-specialties/behavioral-health/)
 
 ## Method
 
