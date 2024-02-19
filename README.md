@@ -7,6 +7,7 @@ Authors: Cagri Ozmemis, Hardik Dhaval Patel, Max Teng Pan, Varun Ramakrishnan
 
 ## Problem Definition
 
+Our problem centers on predicting patient length of stay with initial information (PLOSWI) in a hospital setting. Our primary aim is to assist managerial decision-making processes within a single hospital or any healthcare facility providing inpatient care. Specifically, we seek to forecast the duration of a patient's stay upon admission, relying solely on data collected on the admission day, including demographics, diagnosis, severity of illness, procedural decisions, and risk of mortality. Utilizing these essential yet straightforward pieces of information, our objective is to predict the length of stay for newly admitted patients. This predictive capability is essential for the hospital's capacity planning and resource allocation, ultimately leading to improved utilization and reduced costs.
 
 ## Method
 
