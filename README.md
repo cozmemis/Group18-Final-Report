@@ -2,8 +2,29 @@
 
 Authors: Cagri Ozmemis, Hardik Dhaval Patel, Max Teng Pan, Varun Ramakrishnan
 
-## Introduction/Background
+## Introduction
 
+### Background
+
+In the field of healthcare management, efficient allocation of resources and accurate capacity planning are crucial factors for ensuring quality patient care.
+One of the most important aspects of this problem is predicting the length of stay for patients admitted to hospitals.
+The ability to forecast patient length of stay with initial information (PLOSWI) upon patient intake allows hospitals to make informed operational decisions and provide optimal patient care.
+Some of the many benefits associated with the ability to predict patient length of stay include increasing resource utilization, decreasing costs, and being prepared for emergencies.
+
+In this project, we focus on developing a machine learning solution tailored to address the challenge of predicting patient length of stay based on data collected at the time of admission using both supervised and unsupervised learning methods.
+
+### Dataset
+
+Our dataset will be [real-world patient records acquired and made public by New York state hospitals in 2021](https://data.world/johnsnowlabs/hospital-inpatient-treatment-discharges-2021).
+The dataset includes over one million data points, with 19 key features representing information about the patient collected at the time of patient intake (upon an initial diagnosis by a physician).
+The features include information about the patient - such as their age, gender, and ethnicity - as well as information about their diagnosis, including a code representing the diagnosis, a description of the diagnosis, and the severity of the diagnosis.
+The features also include other potentially relevant information such as insurance information and a predicted risk of mortality.
+
+
+### Literature Review
+
+There have been some related endeavours in the field of length of stay prediction.
+Turgeman et al [1](#1). created a "Cubist" rule-based regression model to predict length of stay at the time of admission using data from Veterans Health Administration in Pittsburgh, PA.
 
 ## Problem Definition
 
@@ -20,6 +41,13 @@ Our problem centers on predicting patient length of stay with initial informatio
 
 
 ## References
+
+<a id="1">[1]</a>
+L. Turgeman, J. May, and R. Sciulli,
+"Insights from a machine learning model for predicting the hospital Length of Stay (LOS) at the time of admission,"
+*Expert Systems with Applications*,
+vol. 78,
+July 2017
 
 
 ## Appendix
