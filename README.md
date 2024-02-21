@@ -7,29 +7,20 @@ Authors: Cagri Ozmemis, Hardik Dhaval Patel, Max Teng Pan, Varun Ramakrishnan
 ### Background
 
 In the field of healthcare management, efficient allocation of resources and accurate capacity planning are crucial factors for ensuring quality patient care.
-One of the most important aspects of this problem is predicting the length of stay for patients admitted to hospitals.
-The ability to forecast patient length of stay with initial information (PLOSWI) upon patient intake allows hospitals to make informed operational decisions and provide optimal patient care.
-Some of the many benefits associated with the ability to predict patient length of stay include increasing resource utilization, decreasing costs, and being prepared for emergencies.
-
-In this project, we focus on developing a machine learning solution tailored to address the challenge of predicting patient length of stay based on data collected at the time of admission using both supervised and unsupervised learning methods.
+One of the most important aspects of this problem is predicting the length of stay for patients admitted to hospitals. The ability to forecast patient length of stay with initial information (PLOSWI) upon patient intake allows hospitals to make informed operational decisions and provide optimal patient care.
+Some of the many benefits associated with the ability to predict patient length of stay include increasing resource utilization, decreasing costs, and being prepared for emergencies. In this project, we focus on developing a machine learning solution tailored to address the challenge of predicting patient length of stay based on data collected at the time of admission using both supervised and unsupervised learning methods.
 
 ### Dataset
 
-Our dataset will be [real-world patient records acquired and made public by New York state hospitals in 2021](https://data.world/johnsnowlabs/hospital-inpatient-treatment-discharges-2021).
-The dataset includes over one million data points, with 19 key features representing information about the patient collected at the time of patient intake (upon an initial diagnosis by a physician).
-The features include information about the patient - such as their age, gender, and ethnicity - as well as information about their diagnosis, including a code representing the diagnosis, a description of the diagnosis, and the severity of the diagnosis.
+Our dataset will be [real-world patient records acquired and made public by New York state hospitals in 2021](https://data.world/johnsnowlabs/hospital-inpatient-treatment-discharges-2021). The dataset includes over one million data points, with 19 key features representing information about the patient collected at the time of patient intake (upon an initial diagnosis by a physician). The features include information about the patient - such as their age, gender, and ethnicity - as well as information about their diagnosis, including a code representing the diagnosis, a description of the diagnosis, and the severity of the diagnosis.
 The features also include other potentially relevant information such as insurance information and a predicted risk of mortality.
 
 
 ### Literature Review
 
-There have been some related endeavours in the field of length of stay prediction.
-Turgeman et al [[1]](#1). created a "Cubist" rule-based regression model to predict length of stay at the time of admission using data from Veterans Health Administration in Pittsburgh, PA.
-Turgeman et al. used tree-based regression models with the intention of understanding the factors governing length of stay.
-They also describe previous machine-learning models used to predict length of stay including a C5.0 tree, Naive-Bayes model, K-nearest neighbours, a Multi-Layer Neural Network, and support-vector regression.
+There have been some related endeavours in the field of length of stay prediction. Turgeman et al [[1]](#1). develop a "Cubist" rule-based regression model to predict length of stay at the time of admission by hevaliy using the patient's previous health care records such as number of past prescriptions, admissions and hospital stays. Authors use tree-based regression models with the intention of understanding the factors governing length of stay. Barnes et al. [[2]](#2) work on a related approach of predicting length of stay in real-time, constantly updating the predictions at specified time intervals. They focus on making daily predictions of patient discharge times to improve the utilization of a single inpatient medical unit. 
 
-Barnes et al. [[2]](#2) worked on a related but slightly different approach of predicting length of stay in real-time, constantly updating the predictions at specified time intervals.
-Our project aims to determine the length of stay at the time of patient intake, which we believe would be more feasible to integrate into healthcare systems.
+Different than previous work, our project aims to determine the length of stay at the time of patient intake using solely the admission and initial diagnosis information, which we believe would be more feasible to integrate into healthcare systems.
 
 ## Problem Definition
 
@@ -41,9 +32,11 @@ Our problem centers on predicting patient length of stay with initial informatio
 
 ## Method
 
+For data preprocessing, it is important to first remove any variables that are irrelevant or redundant as that data can harm model training accuracy. Variables such as Total_Charges are calculated after days in the hospital and therefore would not be relevant as we are trying to predict the days in the hospital. Categorical variables can be encoded using OneHotEncoder to convert them into numerical format. This will help facilitate model training in a more programmable way that can also be interpreted easily. Several supervised learning models are commonly utilized in LOS prediction for their robustness in handling complex relationships in the data such as Support Vector Regression, Gradient Boosting Regression and Random Forest. Among these, we will select two and implement them for the prediction. Moreover, unsupervised models, including DBSCAN, GMM and K-Means, are used for patient grouping, aiding in pattern discovery. We will also select two of these algorithms based on their effectiveness in dealing with high-dimensional healthcare data and their interpretability in providing insights into patient LOS prediction.
 
 ## (Potential) Results and Discussion
 
+For evaluation, quantitative metrics such as R-squared, Mean Percentage Error (MPE), and K-fold cross validation can be used to evaluate model quality. In terms of metrics, the project aims to achieve a MPE of near 0 and R-squared as close to 1 as possible, indicating accurate predictions of patient length of stay. A high validation score close to 90-100% demonstrates the model's ability to predict almost all of the data correctly. The primary goal is to build a machine learning model capable of accurately predicting the length of stay for patients admitted to hospitals based on initial information so that resources can be optimally utilized in hospitals, saving lives and reducing costs.
 
 ## References
 
