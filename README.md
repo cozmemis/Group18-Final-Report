@@ -1,6 +1,6 @@
 # Patient Length of Stay Prediction with Initial Information (Group 18)
 
-Authors: Cagri Ozmemis, Hardik Dhaval Patel, Max Teng Pan, Varun Ramakrishnan
+Authors: Cagri Ozmemis, Hardik Dhaval Patel, Varun Ramakrishnan
 
 ## Introduction
 
@@ -76,7 +76,7 @@ https://doi.org/10.1093/jamia/ocv106
 | Cagri Ozmemis      | finding dataset, literature review, writing Problem Definition, GitHub setup, video creation & recording       |
 | Hardik D. Patel   | writing Methods, writing Results & Discussion        |
 | Varun Ramakrishnan   | literature review, writing Introduction/Background,  GitHub setup, video creation & recording        |
-| Max T. Pan   |    -    |
+
 
 ### Gantt Chart
 
