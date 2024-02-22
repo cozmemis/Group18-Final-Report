@@ -6,21 +6,25 @@ Authors: Cagri Ozmemis, Hardik Dhaval Patel, Max Teng Pan, Varun Ramakrishnan
 
 ### Background
 
-In the field of healthcare management, efficient allocation of resources and accurate capacity planning are crucial factors for ensuring quality patient care.
-One of the most important aspects of this problem is predicting the length of stay for patients admitted to hospitals. The ability to forecast patient length of stay with initial information (PLOSWI) upon patient intake allows hospitals to make informed operational decisions and provide optimal patient care.
-Some of the many benefits associated with the ability to predict patient length of stay include increasing resource utilization, decreasing costs, and being prepared for emergencies. In this project, we focus on developing a machine learning solution tailored to address the challenge of predicting patient length of stay based on data collected at the time of admission using both supervised and unsupervised learning methods.
+The ability to forecast patient length of stay with initial information (PLOSWI) upon patient intake allows hospitals to make informed operational decisions and provide optimal patient care,
+ultimately increasing resource allocation and decreasing costs.
+In this project, we focus on developing a machine learning solution tailored to address the challenge of predicting patient length of stay based on data collected at the time of admission using both supervised and unsupervised learning methods.
 
 ### Dataset
 
-Our dataset will be [real-world patient records acquired and made public by New York state hospitals in 2021](https://data.world/johnsnowlabs/hospital-inpatient-treatment-discharges-2021). The dataset includes over one million data points, with 19 key features representing information about the patient collected at the time of patient intake (upon an initial diagnosis by a physician). The features include information about the patient - such as their age, gender, and ethnicity - as well as information about their diagnosis, including a code representing the diagnosis, a description of the diagnosis, and the severity of the diagnosis.
-The features also include other potentially relevant information such as insurance information and a predicted risk of mortality.
+Our dataset will be [real-world patient records acquired and made public by New York state hospitals in 2021](https://data.world/johnsnowlabs/hospital-inpatient-treatment-discharges-2021).
+The dataset includes over one million data points, with 19 key features.
+Some of the notable features are basic patient information (age, gender, ethnicity) as well as diagnosis information (a code and description).
 
 
 ### Literature Review
 
-There have been some related endeavours in the field of length of stay prediction. Turgeman et al [[1]](#1). develop a "Cubist" rule-based regression model to predict length of stay at the time of admission by heavily using the patient's previous health care records such as number of past prescriptions, admissions and hospital stays. Authors use tree-based regression models with the intention of understanding the factors governing length of stay. Barnes et al. [[2]](#2) work on a related approach of predicting length of stay in real-time, constantly updating the predictions at specified time intervals. They focus on making daily predictions of patient discharge times to improve the utilization of a single inpatient medical unit. 
+Turgeman et al [[1]](#1). created a "Cubist" rule-based regression model to predict PLOWSI using data from Veterans Health Administration in Pittsburgh, PA.
+Turgeman et al. used tree-based regression models with the intention of understanding the factors governing length of stay.
+They also describe prior research to predict length of stay including a C5.0 tree, Naive-Bayes model, K-nearest neighbours, a Multi-Layer Neural Network, and support-vector regression.
 
-Different than previous work, our project aims to determine the length of stay at the time of patient intake using solely the admission and initial diagnosis information, which we believe would be more feasible to integrate into healthcare systems.
+Barnes et al. [[2]](#2) worked on a slightly different approach of predicting length of stay in real-time, constantly updating the predictions at specified time intervals.
+Our project aims to make inferences at the time of intake, which we believe would be more feasible to integrate into healthcare systems.
 
 ## Problem Definition
 
