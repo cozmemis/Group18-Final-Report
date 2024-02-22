@@ -41,7 +41,7 @@ We will start by removing irrelevant or redundant data as they can harm the accu
 
 ## (Potential) Results and Discussion
 
-For evaluation, R-squared, Mean Percentage Error (MPE), and K-fold cross validation can be used to evaluate model quality. In terms of metrics, the project aims to achieve a MPE of near 0 and R-squared as close to 1. Also, high accuracy and AUC scores are expexted which demonstrates the model's advanced prediction abilities. Comparing these metrics among the models to be employed, we will be able to demonstrate the strengths and weaknesses of each model and decide on the best performing ones.
+For evaluation, Mean Percentage Error (MPE) and K-fold cross validation can be used to evaluate prediction quality. In terms of metrics, the project aims to achieve an MPE of near 0. Also, high matching based measures (e.g., accuracy, precision, recall, F-measure) and AUC scores are expexted which demonstrates the model's advanced prediction abilities. Comparing these metrics among the models to be employed, we will be able to demonstrate the strengths and weaknesses of each model and decide on the best performing ones.
 
 ## References
 
