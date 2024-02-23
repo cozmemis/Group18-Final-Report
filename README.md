@@ -28,7 +28,11 @@ Our project aims to make inferences at the time of intake, which we believe woul
 
 ## Problem Definition
 
-Our problem centers on predicting patient length of stay with initial information (PLOSWI) in a hospital setting. Our primary aim is to assist managerial decision-making processes within a single hospital or any healthcare facility providing inpatient care. Specifically, we seek to forecast the duration of a patient's stay upon admission, relying solely on data collected on the admission day, such as demographics, diagnosis, severity of illness, treatment procedure decision, and risk of mortality. Utilizing these simple yet essential pieces of information, our objective is to predict the length of stay for newly admitted patients. This predictive capability is vital for the hospital's capacity planning and resource allocation, ultimately leading to improved utilization and reduced costs.
+Our problem centers on predicting patient length of stay with initial information (PLOSWI) in a hospital setting.
+Our primary aim is to assist managerial decision-making processes within a single hospital or any healthcare facility providing inpatient care.
+Specifically, we seek to forecast the duration of a patient's stay upon admission, relying solely on data collected on the admission day, such as demographics, diagnosis, severity of illness, treatment procedure decision, and risk of mortality.
+Our objective is to predict the length of stay for newly admitted patients.
+This predictive capability is vital for the hospital's capacity planning and resource allocation, ultimately leading to improved utilization and reduced costs.
 
 ![inpatient image](https://intermountainhealthcare.org/-/media/images/images-sc9/medical-specialties/behavioral-health/hospital-patient-16x9.ashx?mw=500)
 
@@ -37,11 +41,17 @@ Our problem centers on predicting patient length of stay with initial informatio
 
 ## Method
 
-We will start by removing irrelevant or redundant data as they can harm the accuracy. Variables such as Total_Charges are calculated after days in the hospital and therefore would not be relevant as we are trying to predict the days in the hospital. Categorical variables can be encoded using OneHotEncoder to convert them into numerical format to facilitate a more programmable and interpretable way. Several supervised learning models are commonly utilized in LOS prediction for their robustness in handling complex relationships in the data such as Support Vector Regression, Gradient Boosting Regression and Random Forest. Among these, we will select two and implement them for the prediction. Moreover, unsupervised models, including DBSCAN, GMM and K-Means, are used for patient grouping, aiding in pattern discovery. We will also select two of these algorithms based on their effectiveness in dealing with high-dimensional healthcare data and their interpretability in providing insights.
+We will start by performing data cleaning (outliers, missing values) and feature reduction.
+Categorical variables can be encoded using one-hot encoding.
+Several supervised learning models are commonly utilized in LOS prediction for their robustness in handling complex relationships in the data such as Support Vector Regression, Gradient Boosting Regression and Random Forest.
+Among these, we will select two and implement them for the prediction.
+Moreover, unsupervised models, including DBSCAN, GMM and K-Means, are used for patient grouping, aiding in pattern discovery. We will also select two of these algorithms based on their effectiveness in dealing with high-dimensional healthcare data and their interpretability in providing insights.
 
 ## (Potential) Results and Discussion
 
-For evaluation, Mean Percentage Error (MPE) and K-fold cross validation can be used to evaluate prediction quality. In terms of metrics, the project aims to achieve an MPE of near 0. Also, high matching based measures (e.g., accuracy, precision, recall, F-measure) and AUC scores are expexted which demonstrates the model's advanced prediction abilities. Comparing these metrics among the models to be employed, we will be able to demonstrate the strengths and weaknesses of each model and decide on the best performing ones.
+For evaluation, R-squared, Mean Percentage Error (MPE), and K-fold cross validation can be used to evaluate prediction correctness.
+In terms of metrics, the project aims to achieve a MPE of near 0 and R-squared as close to 1.
+Also, high accuracy and AUC scores are expected which demonstrates the model's advanced prediction abilities.
 
 ## References
 
@@ -71,12 +81,12 @@ https://doi.org/10.1093/jamia/ocv106
 
 ### Contribution Table
 
-| Name      | Contrubtion |
-| ----------- | ----------- |
-| Cagri Ozmemis      | finding dataset, literature review, writing Problem Definition, GitHub setup, video creation & recording       |
-| Hardik D. Patel   | writing Methods, writing Results & Discussion        |
-| Varun Ramakrishnan   | literature review, writing Introduction/Background,  GitHub setup, video creation & recording        |
-
+| Name               | Contribution                                                                                             |
+|--------------------|----------------------------------------------------------------------------------------------------------|
+| Cagri Ozmemis      | finding dataset, literature review, writing Problem Definition, GitHub setup, video creation & recording |
+| Hardik D. Patel    | writing Methods, writing Results & Discussion                                                            |
+| Varun Ramakrishnan | literature review, writing Introduction/Background,  GitHub setup, video creation & recording            |
+| Max T. Pan         | -                                                                                                        |
 
 ### Gantt Chart
 
