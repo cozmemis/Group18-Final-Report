@@ -79,4 +79,5 @@ https://doi.org/10.1093/jamia/ocv106
 
 
 ### Gantt Chart
+![image](https://github.com/cozmemis/Group18-Proposal/assets/156548803/6cd6b950-dc71-4448-a205-7a2756579845)
 
