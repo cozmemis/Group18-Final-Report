@@ -19,11 +19,9 @@ Some of the notable features are basic patient information (age, gender, ethnici
 
 ### Literature Review
 
-Turgeman et al [[1]](#1). created a "Cubist" rule-based regression model to predict PLOWSI using data from Veterans Health Administration in Pittsburgh, PA.
-Turgeman et al. used tree-based regression models with the intention of understanding the factors governing length of stay.
-They also describe prior research to predict length of stay including a C5.0 tree, Naive-Bayes model, K-nearest neighbours, a Multi-Layer Neural Network, and support-vector regression.
+Most LOS prediction literature focus on a specific illness and rely on advanced medical information by assuming an ongoing stay [[1]](#1) [[2]](#2) [[3]](#3). Additionally, there exists a limited literature that is parallel to ours. For example, Turgeman et al. [[4]](#4) created a "Cubist" rule-based regression model to predict PLOWSI using data from Veterans Health Administration in Pittsburgh, PA. Turgeman et al. used tree-based regression models with the intention of understanding the factors governing length of stay. They also describe prior research to predict length of stay including a C5.0 tree, Naive-Bayes model, K-nearest neighbours, a Multi-Layer Neural Network, and support-vector regression.
 
-Barnes et al. [[2]](#2) worked on a slightly different approach of predicting length of stay in real-time, constantly updating the predictions at specified time intervals.
+Barnes et al. [[5]](#5) worked on a slightly different approach of predicting length of stay in real-time, constantly updating the predictions at specified time intervals.
 Our project aims to make inferences at the time of intake, which we believe would be more feasible to integrate into healthcare systems.
 
 ## Problem Definition
@@ -41,21 +39,42 @@ This predictive capability is vital for the hospital's capacity planning and res
 
 ## Method
 
-We will start by performing data cleaning (outliers, missing values) and feature reduction.
-Categorical variables can be encoded using one-hot encoding.
-Several supervised learning models are commonly utilized in LOS prediction for their robustness in handling complex relationships in the data such as Support Vector Regression, Gradient Boosting Regression and Random Forest.
-Among these, we will select two and implement them for the prediction.
-Moreover, unsupervised models, including DBSCAN, GMM and K-Means, are used for patient grouping, aiding in pattern discovery. We will also select two of these algorithms based on their effectiveness in dealing with high-dimensional healthcare data and their interpretability in providing insights.
+We will start by performing data cleaning (outliers, missing values) and feature reduction. Categorical variables can be encoded using one-hot encoding. Several supervised learning models are commonly utilized in LOS prediction for their robustness in handling complex relationships in the data such as Support Vector Regression, Gradient Boosting Regression and Random Forest. Among these, we will select two and implement them for the prediction. Moreover, unsupervised models, including DBSCAN, GMM and K-Means, are used for patient grouping, aiding in pattern discovery. We will also select two of these algorithms based on their effectiveness in dealing with high-dimensional healthcare data and their interpretability in providing insights.
 
 ## (Potential) Results and Discussion
 
-For evaluation, R-squared, Mean Percentage Error (MPE), and K-fold cross validation can be used to evaluate prediction correctness.
-In terms of metrics, the project aims to achieve a MPE of near 0 and R-squared as close to 1.
-Also, high accuracy and AUC scores are expected which demonstrates the model's advanced prediction abilities.
+For evaluation, R-squared, Mean Percentage Error (MPE), and K-fold cross validation can be used to evaluate prediction correctness. In terms of metrics, the project aims to achieve a MPE of near 0 and R-squared as close to 1. Also, high accuracy and AUC scores are expected which demonstrates the model's advanced prediction abilities.
 
 ## References
 
 <a id="1">[1]</a>
+T.A. Daghistani, R. Elshawi, S. Sakr, A.M. Ahmed, A. Al-Thwayee, M.H. Al-Mallah,
+"Predictors of in-hospital length of stay among cardiac patients: A machine learning approach,"
+*International Journal of Cardiology*,
+vol. 288,
+August 2019,
+Pages 140-147,
+https://doi.org/10.1016/j.eswa.2017.02.023](https://doi.org/10.1016/j.ijcard.2019.01.046
+
+<a id="2">[2]</a>
+R. Houthooft, J. Ruyssinck, J. van der Herten, S. Stijven, I. Couckuyt, B. Gadeyne, F. Ongenae, K. Colpaert, J. Decruyenaere, T. Dhaene, F. De Turck,
+"Predictive modelling of survival and length of stay in critically ill patients using sequential organ failure scores,"
+*Artificial Intelligence in Medicine,
+vol. 63,
+March 2015,
+Pages 191-207,
+https://doi.org/10.1016/j.eswa.2017.02.023](https://doi.org/10.1016/j.artmed.2014.12.009
+
+<a id="3">[3]</a>
+B. Alsinglawi, O. Alshari, M. Alorjani, O. Mubin, F. Alnajjar, M. Novoa, O. Darwish,
+"An explainable machine learning framework for lung cancer hospital length of stay prediction,"
+*Scientific Reports*,
+vol. 12,
+January 2022,
+https://doi.org/10.1016/j.eswa.2017.02.023](https://doi.org/10.1038/s41598-021-04608-7
+
+
+<a id="4">[4]</a>
 L. Turgeman, J. May, and R. Sciulli,
 "Insights from a machine learning model for predicting the hospital Length of Stay (LOS) at the time of admission,"
 *Expert Systems with Applications*,
@@ -65,7 +84,7 @@ Pages 376-385,
 https://doi.org/10.1016/j.eswa.2017.02.023
 
 
-<a id="2">[2]</a>
+<a id="5">[5]</a>
 S. Barnes, E. Hamrock, M. Toerper, S. Siddiqui, S. Levin,
 "Real-time prediction of inpatient length of stay for discharge prioritization",
 *Journal of the American Medical Informatics Association*,
