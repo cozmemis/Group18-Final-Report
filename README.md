@@ -63,7 +63,7 @@ R. Houthooft, J. Ruyssinck, J. van der Herten, S. Stijven, I. Couckuyt, B. Gadey
 vol. 63,
 March 2015,
 Pages 191-207,
-https://doi.org/10.1016/j.eswa.2017.02.023](https://doi.org/10.1016/j.artmed.2014.12.009
+https://doi.org/10.1016/j.artmed.2014.12.009
 
 <a id="3">[3]</a>
 B. Alsinglawi, O. Alshari, M. Alorjani, O. Mubin, F. Alnajjar, M. Novoa, O. Darwish,
