@@ -37,13 +37,22 @@ This predictive capability is vital for the hospital's capacity planning and res
 <span style="font-size:small; color:grey; font-style:italic;">Source:[Intermountain Healthcare](https://intermountainhealthcare.org/medical-specialties/behavioral-health/)</span>
 
 
-## Method
+## Methods
+### Data Preprocessing
 
-We will start by performing data cleaning (outliers, missing values) and feature reduction. Categorical variables can be encoded using one-hot encoding. Several supervised learning models are commonly utilized in LOS prediction for their robustness in handling complex relationships in the data such as Support Vector Regression, Gradient Boosting Regression and Random Forest. Among these, we will select two and implement them for the prediction. Moreover, unsupervised models, including DBSCAN, GMM and K-Means, are used for patient grouping, aiding in pattern discovery. We will also select two of these algorithms based on their effectiveness in dealing with high-dimensional healthcare data and their interpretability in providing insights.
+### Unsupervised Learning
 
-## (Potential) Results and Discussion
+### Supervised Learning
 
-For evaluation, R-squared, Mean Percentage Error (MPE), and K-fold cross validation can be used to evaluate prediction correctness. In terms of metrics, the project aims to achieve a MPE of near 0 and R-squared as close to 1. Also, high accuracy and AUC scores are expected which demonstrates the model's advanced prediction abilities.
+## Results and Discussion
+
+### Data Preprocessing
+
+### Unsupervised Learning
+
+### Supervised Learning
+
+### Next Steps
 
 ## References
 
@@ -102,9 +111,9 @@ https://doi.org/10.1093/jamia/ocv106
 
 | Name               | Contribution                                                                                             |
 |--------------------|----------------------------------------------------------------------------------------------------------|
-| Cagri Ozmemis      | finding dataset, literature review, writing Problem Definition, GitHub setup, video creation & recording |
-| Hardik D. Patel    | writing Methods, writing Results & Discussion                                                            |
-| Varun Ramakrishnan | literature review, writing Introduction/Background,  GitHub setup, video creation & recording            |
+| Cagri Ozmemis      | Data Preprocessing, Unsupervised Learning algorithm development                                          |
+| Hardik D. Patel    | Data Preprocessing, Supervised Learning algorithm development                                            |
+| Varun Ramakrishnan | Data Visualization, Supervised Learning algorithm development                                            |
 | Max T. Pan         | -                                                                                                        |
 
 ### Gantt Chart
