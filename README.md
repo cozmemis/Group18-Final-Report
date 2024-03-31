@@ -80,7 +80,7 @@ At first glance, we observe that using different feature selection confuguration
 
 <img src="./images/sil_table.png" width="310" height="600">   <img src="./images/beta_table.png" width="310" height="600">
 
-
+Furthermore, we look analyze how the cluster are formed according the output provided by our chosen configuration. We analyze each cluster by extracting the following information: 'For each feature, which is the most frequent categorial value? and 'What is the frequency of the most frequent categorical value?'. The table provided below answers these two questions, and help us understand and reveal the pattern hidden in the clusters.
 
 ### Supervised Learning
 
