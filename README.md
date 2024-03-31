@@ -78,7 +78,7 @@ We execute both algorithms (developed K-means or built-in function) 8 (number of
 ### Unsupervised Learning
 At first glance, we observe that using different feature selection confugurations does not affect the Silhouette Coefficient and Beta-CV Measure, which is an indicator that our choice of using basic admission information is justified and using solely 'Age_Group', 'Gender', 'Race', 'Type_Of_Admission', 'Payment_Typology_1', 'Is_Emergency_Department_Indicator' information is sufficient for an effective clustering. Below, we provide two tables that provide Silhouette Coefficient (descending order) and Beta-CV Measure (ascending order) for each configuartion of algortihm, initialization method and number of clusters. As shown in the table, while SKlearn's built-in function with 7 clusters and K-means++ initialization gives the best outcome in terms of Silhouette Coefficient, our developed algorithm with 10 clusters and K-means++ initialization provides the best result in terms of Beta-CV Measure. Since, arriving at an effective clustering with less number of clusters is more viable, we declare the SKlearn's built-in function with 7 clusters and K-means++ initialization as the best configuration and use its outcomes the investigate clustering dynamics.
 
-<img src="./images/sil_table.png" width="330" height="700">   <img src="./images/beta_table.png" width="330" height="700">
+<img src="./images/sil_table.png" width="310" height="600">   <img src="./images/beta_table.png" width="310" height="600">
 
 
 
