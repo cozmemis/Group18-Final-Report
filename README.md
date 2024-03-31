@@ -112,7 +112,7 @@ At first glance, we observe that using different feature selection confuguration
 | 5                    | developed     | random           | 0.10260              |
 | 6                    | developed     | random           | 0.10031              |
 | 7                    | developed     | random           | 0.09413              |
-|<img width=80 height=30/>|<img width=80 height=30/>|<img width=80 height=30/>|<img width=80 height=30/>|
+|<img width=80 height=10/>|<img width=80 height=10/>|<img width=80 height=10/>|<img width=80 height=10/>|
 
 | **Num. of clusters** | **Algorithm** | **Init. method** | **Beta-CV (min)** |
 |----------------------|---------------|------------------|-------------------|
@@ -148,7 +148,7 @@ At first glance, we observe that using different feature selection confuguration
 | 3                    | builtin       | random           | 0.84643           |
 | 3                    | builtin       | k-means++        | 0.84643           |
 | 3                    | developed     | k-means++        | 0.84880           |
-|<img width=80 height=30/>|<img width=80 height=30/>|<img width=80 height=30/>|<img width=80 height=30/>|
+|<img width=80 height=10/>|<img width=80 height=10/>|<img width=80 height=10/>|<img width=80 height=10/>|
 
 ### Supervised Learning
 
