@@ -43,12 +43,10 @@ We start data preprocessing by discarding the unneccessary features and keeping 
 
 Later we plotted the frequency of each unique entry for each data features separately to be able to observe an abnormal behavior. Upon our initial observation of plots, first, we noticed that 'Gender' feature has rarely unkown entries indicated with 'U'. So, we discarded unknown gender entries. Similarly, we discarded entries having 'Not Available' for 'Type_Of_Admission' features. Later, in 'Race' feature, we noticed that although there are only a few entries having 'Multi-racial', the average LOS value of these entries were significantly close to average LOS value of entries having 'Other race'. Since, these two unique values are close to each other semantically, we merge them to increase homogeneity of data. We also discarded an entire feature which is 'Ethnicity', because it is significantly low in terms of Entropy and carries a similar information with 'Race' feature at a different level. Finally, we examined 'Payment_Typology_1' column and observe that 'Miscellaneous/Other', 'Federal/State/Local/VA', 'Department of Corrections' values does not carry any contextual information and very seldom in number. Therefore, we deducted entries having these values. We refer the reader to the file 'Data_Cleaning.ipynb' where all frequency plots are located. To save space in our report, we only provide two examples of frequency plots before and after the aforementioned processing steps. Below is the before and after frequency plots for features.
 
-<img src=https://github.com/cozmemis/Group18-Midterm-Checkpoint/assets/156548803/43ada448-ed8b-4e3a-841e-8e69a1c4eeff width=80 height=80>  <img src=[https://github.com/cozmemis/Group18-Midterm-Checkpoint/assets/156548803/43ada448-ed8b-4e3a-841e-8e69a1c4eeff](https://github.com/cozmemis/Group18-Midterm-Checkpoint/assets/156548803/3c9f4aee-40f6-4c7e-b1d9-21dcf67e4151) width=80 height=80>
 
-<img src=[https://github.com/cozmemis/Group18-Midterm-Checkpoint/assets/156548803/43ada448-ed8b-4e3a-841e-8e69a1c4eeff](https://github.com/cozmemis/Group18-Midterm-Checkpoint/assets/156548803/03702ec5-01a8-4bc0-a41f-f5b5c26fd3b8) width=80 height=80> <img src=[https://github.com/cozmemis/Group18-Midterm-Checkpoint/assets/156548803/43ada448-ed8b-4e3a-841e-8e69a1c4eeff](https://github.com/cozmemis/Group18-Midterm-Checkpoint/assets/156548803/0181806a-ab88-4827-b9bf-088c1755fd16) width=80 height=80>
+<img src="./images/frequency_race_before.png" width="100" height="100"> <img src="./images/frequency_race_after.png" width="100" height="100">
 
-
-
+<img src="./images/frequency_payment_before.png" width="100" height="100"> <img src="./images/frequency_payment_after.png" width="100" height="100">
 
 ### Unsupervised Learning
 
