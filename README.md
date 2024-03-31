@@ -58,6 +58,16 @@ We mentioned that, we are left with 728,589 data points in the final version of 
 
 ### Unsupervised Learning
 
+For unsupervised learning algorithm, we decided to start with K-means method, and proceed to the more complex algorithms if K-means alone cannot account for the sufficient explanation of the data dynamics. To be on the safe side, along with SKLearn's built-in function, we developed our own K-means algorithm, and analyze the results produced by both. 
+
+Moreover, we tune parameters and configurations for our algorithms. Namely, we try different numbers of clusters, initilazition methods, and feature selections. Below, we provide how we proceed with each of those.
+
+* Number of clusters: We try eight different values for number of clusters between 3 and 10.
+* Intialization method: We employ both random and K-means++ methods to initialize the cluster centroids.
+* Feature selection: Because 'Diagnosis_Description', 'Procedure_Description', 'APR_DRG_Description' features are categorical and still posess too many unique values which will lead to over-complexty issue if used, we decided to discard them. However, we decided to reconsider them if the algorithm cannot arrive at a sufficent explanation of the data in their absence. Also, we eliminate our target features, because we are conducting an unsupervised experiment. Thus, we iclude remaining the reamining ten features for algorithm development which are 'Age_Group', 'Gender', 'Race', 'Type_Of_Admission', 'Payment_Typology_1', 'Is_Emergency_Department_Indicator', 'APR_MDC_Description', 'APR_Severity_Of_Illness_Description', 'APR_Risk_Of_Mortality', 'APR_Medical_Surgical_Description'. For these ten features, we find it suitable to apply Forward Feature Selection (FFS). However, applying FFS for ten features by considering their different combinations would lead to 1023 feature selction configurations, which would consume significant amounts of CPU time. Therefore, we fix six of the attributes in our configurations which are the simplest ones and carrying the least medical information, because our novelty stems from using the basic initial admission information and we should be achieving adequate exploration with the basic information. These fixed features are 'Age_Group', 'Gender', 'Race', 'Type_Of_Admission', 'Payment_Typology_1', 'Is_Emergency_Department_Indicator'. Moreover, we apply FFS with different combinations of four advanced medical features which are 'APR_MDC_Description', 'APR_Severity_Of_Illness_Description', 'APR_Risk_Of_Mortality', 'APR_Medical_Surgical_Description'. This process results in 15 feature selection configuration.
+
+We execute both algorithms (developed K-means or built-in function) 8 (number of clusters) x 2 (initialization method) x 15 (feature selection configuration) = 240 times, and analyze the results in terms of two metrics: Silhouette Coefficient and Beta-CV Measure. We resort to these two internal measures because we do not posess the true labels information, hence we cannot employ external measures such as Precison, Recall, and F1. For Beta-CV Measure, we develop our own algorithm; for Silhouette Coefficient, we utilize SKLearn's built-in function. We refer reader to the 'kmeans_develop.ipynb' to examine our efforts described in this subsection.
+
 ### Supervised Learning
 
 
