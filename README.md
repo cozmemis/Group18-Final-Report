@@ -78,77 +78,9 @@ We execute both algorithms (developed K-means or built-in function) 8 (number of
 ### Unsupervised Learning
 At first glance, we observe that using different feature selection confugurations does not affect the Silhouette Coefficient and Beta-CV Measure, which is an indicator that our choice of using basic admission information is justified and using solely 'Age_Group', 'Gender', 'Race', 'Type_Of_Admission', 'Payment_Typology_1', 'Is_Emergency_Department_Indicator' information is sufficient for an effective clustering. Below, we provide two tables that provide Silhouette Coefficient (descending order) and Beta-CV Measure (ascending order for each configuartion of algortihm, initialization method and number of clusters. As shown in the table, while SKlearn's built-in function with 7 clusters and K-means++ initialization gives the best outcome in terms of Silhouette Coefficient, our developed algorithm with 10 clusters and K-means++ initialization provides the best result in terms of Beta-CV Measure. Since, arriving at an effective clustering with less number of clusters is more viable, we declare the SKlearn's built-in function with 7 clusters and K-means++ initialization as the best configuration and use its outcomes the investigate clustering dynamics.
 
-| **Num. of clusters** | **Algorithm** | **Init. method** | **Silhouette (max)** |
-|----------------------|---------------|------------------|----------------------|
-| 7                    | builtin       | k-means++        | 0.12944              |
-| 8                    | builtin       | k-means++        | 0.12912              |
-| 6                    | builtin       | random           | 0.12898              |
-| 6                    | builtin       | k-means++        | 0.12894              |
-| 7                    | builtin       | random           | 0.12518              |
-| 10                   | developed     | k-means++        | 0.12489              |
-| 9                    | developed     | k-means++        | 0.12394              |
-| 5                    | builtin       | random           | 0.12345              |
-| 8                    | builtin       | random           | 0.12238              |
-| 3                    | developed     | random           | 0.12116              |
-| 5                    | builtin       | k-means++        | 0.12085              |
-| 9                    | developed     | random           | 0.12057              |
-| 3                    | builtin       | k-means++        | 0.12055              |
-| 3                    | builtin       | random           | 0.12055              |
-| 8                    | developed     | random           | 0.11909              |
-| 10                   | builtin       | k-means++        | 0.11773              |
-| 7                    | developed     | k-means++        | 0.11771              |
-| 9                    | builtin       | random           | 0.11670              |
-| 9                    | builtin       | k-means++        | 0.11661              |
-| 8                    | developed     | k-means++        | 0.11626              |
-| 6                    | developed     | k-means++        | 0.11502              |
-| 4                    | developed     | k-means++        | 0.11480              |
-| 10                   | builtin       | random           | 0.11437              |
-| 10                   | developed     | random           | 0.11344              |
-| 4                    | builtin       | random           | 0.11069              |
-| 3                    | developed     | k-means++        | 0.11036              |
-| 4                    | builtin       | k-means++        | 0.10960              |
-| 4                    | developed     | random           | 0.10956              |
-| 5                    | developed     | k-means++        | 0.10756              |
-| 5                    | developed     | random           | 0.10260              |
-| 6                    | developed     | random           | 0.10031              |
-| 7                    | developed     | random           | 0.09413              |
-|<img width=80 height=10/>|<img width=80 height=10/>|<img width=80 height=10/>|<img width=80 height=10/>|
+<img src="./images/sil_table.png" width="310" height="700"> <img src="./images/beta_table.png" width="310" height="700">
 
-| **Num. of clusters** | **Algorithm** | **Init. method** | **Beta-CV (min)** |
-|----------------------|---------------|------------------|-------------------|
-| 10                   | developed     | k-means++        | 0.75578           |
-| 10                   | builtin       | random           | 0.75664           |
-| 10                   | builtin       | k-means++        | 0.76143           |
-| 9                    | developed     | k-means++        | 0.76202           |
-| 10                   | developed     | random           | 0.76223           |
-| 9                    | developed     | random           | 0.76386           |
-| 9                    | builtin       | k-means++        | 0.76869           |
-| 9                    | builtin       | random           | 0.76892           |
-| 8                    | builtin       | random           | 0.77190           |
-| 8                    | developed     | random           | 0.77416           |
-| 8                    | developed     | k-means++        | 0.77538           |
-| 8                    | builtin       | k-means++        | 0.77732           |
-| 7                    | builtin       | k-means++        | 0.78292           |
-| 7                    | builtin       | random           | 0.78330           |
-| 7                    | developed     | random           | 0.79310           |
-| 6                    | builtin       | random           | 0.79345           |
-| 6                    | builtin       | k-means++        | 0.79347           |
-| 7                    | developed     | k-means++        | 0.79426           |
-| 6                    | developed     | random           | 0.80315           |
-| 6                    | developed     | k-means++        | 0.80535           |
-| 5                    | builtin       | k-means++        | 0.81495           |
-| 5                    | builtin       | random           | 0.81548           |
-| 5                    | developed     | random           | 0.81817           |
-| 4                    | developed     | k-means++        | 0.82345           |
-| 5                    | developed     | k-means++        | 0.82434           |
-| 4                    | builtin       | k-means++        | 0.82567           |
-| 4                    | developed     | random           | 0.82576           |
-| 4                    | builtin       | random           | 0.82938           |
-| 3                    | developed     | random           | 0.84625           |
-| 3                    | builtin       | random           | 0.84643           |
-| 3                    | builtin       | k-means++        | 0.84643           |
-| 3                    | developed     | k-means++        | 0.84880           |
-|<img width=80 height=10/>|<img width=80 height=10/>|<img width=80 height=10/>|<img width=80 height=10/>|
+
 
 ### Supervised Learning
 
