@@ -45,8 +45,8 @@ Later we plotted the frequency of each unique entry for each data features separ
 
 Before             |  After
 :-------------------------:|:-------------------------:
-![image](https://github.com/cozmemis/Group18-Midterm-Checkpoint/assets/156548803/43ada448-ed8b-4e3a-841e-8e69a1c4eeff | width=80) |  ![image](https://github.com/cozmemis/Group18-Midterm-Checkpoint/assets/156548803/3c9f4aee-40f6-4c7e-b1d9-21dcf67e4151 | width=80)
-![image](https://github.com/cozmemis/Group18-Midterm-Checkpoint/assets/156548803/03702ec5-01a8-4bc0-a41f-f5b5c26fd3b8 | width=80)  |  ![image](https://github.com/cozmemis/Group18-Midterm-Checkpoint/assets/156548803/0181806a-ab88-4827-b9bf-088c1755fd16 | width=80)
+![image](https://github.com/cozmemis/Group18-Midterm-Checkpoint/assets/156548803/43ada448-ed8b-4e3a-841e-8e69a1c4eeff =80x80) |  ![image](https://github.com/cozmemis/Group18-Midterm-Checkpoint/assets/156548803/3c9f4aee-40f6-4c7e-b1d9-21dcf67e4151 =80x80)
+![image](https://github.com/cozmemis/Group18-Midterm-Checkpoint/assets/156548803/03702ec5-01a8-4bc0-a41f-f5b5c26fd3b8 =80x80)  |  ![image](https://github.com/cozmemis/Group18-Midterm-Checkpoint/assets/156548803/0181806a-ab88-4827-b9bf-088c1755fd16 =80x80)
 
 
 ### Unsupervised Learning
