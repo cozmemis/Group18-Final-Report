@@ -82,16 +82,17 @@ Initially, we observe that using different feature selection confugurations do n
 
 As shown in the table, while SKlearn's built-in function with 7 clusters and K-means++ initialization gives the best outcome in terms of Silhouette Coefficient, our developed algorithm with 10 clusters and K-means++ initialization provides the best result in terms of Beta-CV Measure. Since, arriving at an effective clustering with less number of clusters is more viable, we declare the SKlearn's built-in function with 7 clusters and K-means++ initialization as the best configuration and use its outcomes the investigate clustering dynamics.
 
-The most important finding of the unsupervised learning effort is that our algoirthm perfectly clustered the data points according to the target values. That is, although we do not provide any information regarding the target value, the unsupervised algorithm clustered the data points according to increasing LOS values. Following is the assignment of each cluster to a specific LOS interval:
-*Cluster 0: LOS between 1 and 3
-*Cluster 4: LOS between 2 and 6
-*Cluster 2: LOS between 7 and 12
-*Cluster 5: LOS between 13 and 22
-*Cluster 1: LOS between 23 and 38
-*Cluster 3: LOS between 39 and 65
-*Cluster 6: LOS between 66 and 116
+The most important finding of our unsupervised learning effort is that our algoirthm perfectly clustered the data points according to the target values. That is, although we do not provide any information regarding the target value, the unsupervised algorithm clustered the data points according to increasing LOS values. Following is the assignment of each cluster to a specific LOS interval:
 
-These results imply that trough our unsupervised learning algorithm with only using 'Age_Group', 'Gender', 'Race', 'Type_Of_Admission', 'Payment_Typology_1', 'Is_Emergency_Department_Indicator' information we are able to identify the interval of days a certain patient will stay at the hospital. As provided, we can see clear cuts in terms of LOS while going from one cluster to another, except the transition from Cluster 0 to Cluster 4, which intersect in LOS of 2 and 3 days. The reason why they share two LOS values is that they are clustered according to their diagnosis description and some other key feature values, and these two different configuration may lead to a similar LOS. 
+* Cluster 0: LOS between 1 and 3
+* Cluster 4: LOS between 2 and 6
+* Cluster 2: LOS between 7 and 12
+* Cluster 5: LOS between 13 and 22
+* Cluster 1: LOS between 23 and 38
+* Cluster 3: LOS between 39 and 65
+* Cluster 6: LOS between 66 and 116
+
+These results imply that trough our unsupervised learning algorithm with only using 'Age_Group', 'Gender', 'Race', 'Type_Of_Admission', 'Payment_Typology_1', 'Is_Emergency_Department_Indicator' information we are able to identify the interval of days a certain patient will stay at the hospital. Moreover, we observe clear cuts in terms of LOS while going from one cluster to another, except the transition from Cluster 0 to Cluster 4, which intersect in LOS of 2 and 3 days. The reason why they share two LOS values is that they are clustered according to their diagnosis description and some other key feature values, and these two different configuration may lead to a similar LOS. 
 
 
 To explain the motivation behind all clusterings with respect to the feature values, we analyze how the clusters are formed according the output provided by our chosen algorithm configuration. We analyze each cluster by extracting the following information: 'For each feature, which is the most frequent categorial value? and 'What is the frequency of the most frequent categorical value?'. The table provided below answers these two questions, and help us understand and reveal the pattern hidden in the clusters. The table below provides complete answers to these questions.
