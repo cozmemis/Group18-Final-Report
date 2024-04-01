@@ -84,7 +84,7 @@ As shown in the table, while SKlearn's built-in function with 7 clusters and K-m
 
 Furthermore, we analyze how the cluster are formed according the output provided by our chosen configuration. We analyze each cluster by extracting the following information: 'For each feature, which is the most frequent categorial value? and 'What is the frequency of the most frequent categorical value?'. The table provided below answers these two questions, and help us understand and reveal the pattern hidden in the clusters. The table below provides complete answers to these questions.
 
-<img src="./images/unsupervised_results_table.png" width="330" height="200"> 
+<img src="./images/unsupervised_results_table.png" width="550" height="400"> 
 
 
 ### Supervised Learning
