@@ -128,7 +128,7 @@ We refer the reader to the 'kmeans_analysis.ipynb' to examine our efforts descri
 
 
 ### Next Steps
-Throughout the rest of the project, we will create additional unsupervised and supervised learning algorithms and assess their effectiveness through comparison.
+In the remainder of the project, we will create additional unsupervised and supervised learning algorithms and assess their performances through comparison.
 
 ## References
 
