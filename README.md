@@ -82,7 +82,9 @@ For a detailed examination of our efforts in this section, we direct the reader 
 
 ### Supervised Learning
 
+For the supervised learning algorithm, we decided to start with a multiple linear regression model with all independent variables. Using one-hot encoding we numericalized the categorical variables, however that left us with many additional variables to regress on. We kept testing for more models that could help explain the variation in our dependent variable, "Length of Stay." We implemented basic ridge and lasso regression models, however there seemed to be a need of major fine tuning before those models could be useful to us. We then implemented a basic random forest model that seemed like it did a decent job. 
 
+Knowing that we needed to reduce the number of our variables possibly due to multicollinearity, we implemented code to check the VIF of each independent variable to identify variables with hihg multicollinearity. We also looked into a PCA approach by trying to find the optimal amount of variables. 
 ## Results and Discussion
 
 ### Unsupervised Learning
@@ -125,6 +127,8 @@ Our unsupervised learning efforts demonstrate that hospital managers can obtain 
 We refer the reader to the 'kmeans_analysis.ipynb' to examine our efforts described in this section.
 
 ### Supervised Learning
+
+The r^2 value for the regular linear regression model was only about .4. Only 40% of the variation being explained by our model is not sufficient at all, but most likely due to multicollinearity from the sheer number of independent variables. We implemented various models to find the best R^2.  We ended up with a 76.2% R^squared using a random forest model. However, there is still a lot of work that needs to be done. First, we need to address the problem of multi-collinearity from the number of duplicate variables we have. In the future, we could try Lasso Regression to decrease the number of variables. We could also implement a forward or backward feature selection algorithm to help fine tune our regression models. PCA analysis can also be further explored.
 
 
 ### Next Steps
