@@ -36,6 +36,10 @@ This predictive capability is vital for the hospital's capacity planning and res
 
 <span style="font-size:small; color:grey; font-style:italic;">Source:[Intermountain Healthcare](https://intermountainhealthcare.org/medical-specialties/behavioral-health/)</span>
 
+## Data Visualization
+
+We performed an exploratory analysis of our data
+
 ## Data Preprocessing
 We start data preprocessing by discarding the unneccessary features and keeping only the useful ones. Among 32 features, we find 19 to be suitable, which are 'Age_Group', 'Gender', 'Race', 'Ethnicity', 'Type_Of_Admission', 'Diagnosis_Description', 'Procedure_Description', 'APR_DRG_Description', 'APR_MDC_Description', 'APR_Severity_Of_Illness_Description', 'APR_Risk_Of_Mortality', 'APR_Medical_Surgical_Description', 'Payment_Typology_1', 'Is_Emergency_Department_Indicator', 'Length_Of_Stay'. Here, 'Length_Of_Stay' stay denotes the target value that we are trying to predict with ML algorithms. Afterwards, we clean the data from missing information. As our dataset contains a vast amount of information, totaling 1,046,218 entries, we opted to eliminate any data points that possessed at least one missing feature. This process resulted in a remaining dataset of 764,953 data points.
 
@@ -128,11 +132,35 @@ We refer the reader to the 'kmeans_analysis.ipynb' to examine our efforts descri
 
 ### Supervised Learning
 
-The r^2 value for the regular linear regression model was only about .4. Only 40% of the variation being explained by our model is not sufficient at all, but most likely due to multicollinearity from the sheer number of independent variables. We implemented various models to find the best R^2.  We ended up with a 76.2% R^squared using a random forest model. However, there is still a lot of work that needs to be done. First, we need to address the problem of multi-collinearity from the number of duplicate variables we have. In the future, we could try Lasso Regression to decrease the number of variables. We could also implement a forward or backward feature selection algorithm to help fine tune our regression models. PCA analysis can also be further explored.
+The $R^2$ value for the regular linear regression model was only about 0.4.
+Only 40% of the variation being explained by our model is not sufficient at all, but most likely due to multicollinearity from the sheer number of independent variables.
+
+<img src="./images/ols_residuals.png">
+<img src="./images/ols_qq.png">
+
+We also implemented a Random Forest model, which yielded much better results with an $R^2$ of 0.74.
+
+<img src="./images/rf_residuals.png">
+<img src="./images/rf_qq.png">
+
+
+We also performed PCA analysis on our dataset, finding the explained variance associated with each component:
+
+<img src="./images/pca_explained_variance.png">
+
+
+Ultimately, our supervised learning results show that it is possible to use regression models to predict the length of stay as a continuous variable (not in clusters) with reasonable accuracy.
+This provides more granular and fine-grained planning capabilities to hospitals.
+However, there is still a lot of work that needs to be done.
+First, we need to address the problem of multi-collinearity from the number of duplicate variables we have.
+In the future, we could try Lasso Regression to decrease the number of variables. We could also implement a forward or backward feature selection algorithm to help fine tune our regression models.
+PCA analysis can also be further explored, to reduce the dimensionality of our dataset.
+
 
 
 ### Next Steps
 In the remainder of the project, we will create additional unsupervised and supervised learning algorithms and assess their performances through comparison.
+We will also perform further investigation into feature selection to address multi-collinearity and will additionally fine tune our existing models.
 
 ## References
 
