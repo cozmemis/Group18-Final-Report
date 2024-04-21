@@ -91,7 +91,7 @@ Knowing that we needed to reduce the number of our variables possibly due to mul
 
 Below, we present two tables listing the Silhouette Coefficient (in descending order) and Beta-CV Measure (in ascending order) for each algorithm configuration, initialization method, and number of clusters. Since the tables have 512 lines, in order to save space in our report, we only provide the first 29 rows for both tables.
 
-<img src="./images/sil_table.png" width="350" height="600">   <img src="./images/beta_table.png" width="350" height="600">
+<img src="./images/sil_table.png" width="300" height="500">   <img src="./images/beta_table.png" width="300" height="500">
 
 We note that employing different feature selection configurations does not alter the Silhouette Coefficient and Beta-CV Measure, as the majority of best result are obtained through six primal information which are fixed. This observation indicates that our decision to utilize basic admission information, comprising 'Age_Group', 'Gender', 'Race', 'Type_Of_Admission', 'Payment_Typology_1', and 'Is_Emergency_Department_Indicator', is justified, and these features alone are adequate for effective clustering. Moreover, as shown in the table, SKlearn's built-in function with 10 clusters and K-means++ initialization yields the best reusults both in terms of Silhouette Coefficient and Beta-CV Measure. Consequently, we utilize its outcomes to investigate clustering dynamics.
 
