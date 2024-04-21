@@ -89,9 +89,9 @@ Knowing that we needed to reduce the number of our variables possibly due to mul
 
 #### K-means
 
-Below, we present two tables listing the Silhouette Coefficient (in descending order) and Beta-CV Measure (in ascending order) for each algorithm configuration, initialization method, and number of clusters. Since the tables have 512 lanes, in order to save space in our report, we only provide the first 29 rows for both tables.
+Below, we present two tables listing the Silhouette Coefficient (in descending order) and Beta-CV Measure (in ascending order) for each algorithm configuration, initialization method, and number of clusters. Since the tables have 512 lines, in order to save space in our report, we only provide the first 29 rows for both tables.
 
-<img src="./images/sil_table.png" width="310" height="600">   <img src="./images/beta_table.png" width="310" height="600">
+<img src="./images/sil_table.png" width="350" height="600">   <img src="./images/beta_table.png" width="350" height="600">
 
 We note that employing different feature selection configurations does not alter the Silhouette Coefficient and Beta-CV Measure, as the majority of best result are obtained through six primal information which are fixed. This observation indicates that our decision to utilize basic admission information, comprising 'Age_Group', 'Gender', 'Race', 'Type_Of_Admission', 'Payment_Typology_1', and 'Is_Emergency_Department_Indicator', is justified, and these features alone are adequate for effective clustering. Moreover, as shown in the table, SKlearn's built-in function with 10 clusters and K-means++ initialization yields the best reusults both in terms of Silhouette Coefficient and Beta-CV Measure. Consequently, we utilize its outcomes to investigate clustering dynamics.
 
@@ -103,7 +103,7 @@ To explain the motivation behind all clusterings concerning the feature values, 
 * What is the frequency of the most frequent categorical value?
 Furthermore, for each cluster, we provide the mean, median, minimum and maximum values of their LOS information. The table below provides the aforementioned information, aiding us in uncovering and comprehending the underlying patterns within the clusters.
 
-<img src="./images/unsupervised_results_table.png" width="820" height="500"> 
+<img src="./images/unsupervised_results_table.png" width="920" height="500"> 
 
 
 Since we input attributes such as 'Age_Group', 'Gender', 'Race', 'Type_Of_Admission', 'Payment_Typology_1', and 'Is_Emergency_Department_Indicator' into our algorithm, it's unsurprising that the clusters exhibit homogeneity regarding the categorical values of these features. Consequently, it is essential to examine the frequencies of data not provided to the algorithm, specifically the advanced medical information. We note that clusters predominantly consist of COVID-19 and childbirth-related admissions, along with a distinct cluster focused on Osteoarthritis admissions, typically involving knee surgery. These groups are further subdivided based on various criteria like the specific procedure performed, medical versus surgical treatment, risk of mortality, and detailed diagnostic descriptions. For example, COVID-19 related admissions are further splitted into clusters according to the treatment process such as isolation, administration of therapeutic substances and potential COVID-19 therapies, and risk of mortality levels are varying across clusters as etiher minor or major. With respect to childbirth, we see further clusterings based on whether it is a vaginal delivery or a newborn vaccination,the mother's age interval, severity of illnes being minor or moderate. 
