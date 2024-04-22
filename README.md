@@ -80,9 +80,20 @@ For a detailed examination of our efforts in this section, we direct the reader 
 
 ### Supervised Learning
 
-For the supervised learning algorithm, we decided to start with a multiple linear regression model with all independent variables. Using one-hot encoding we numericalized the categorical variables, however that left us with many additional variables to regress on. We kept testing for more models that could help explain the variation in our dependent variable, "Length of Stay." We implemented basic ridge and lasso regression models, however there seemed to be a need of major fine tuning before those models could be useful to us. We then implemented a basic random forest model that seemed like it did a decent job. 
+Initially, we utilized all available features for our supervised learning projects, including 'Age_Group', 'Gender', 'Race', 'Type_Of_Admission', 'Diagnosis_Description', 'Procedure_Description', 'APR_DRG_Description', 'APR_MDC_Description', 'APR_Severity_Of_Illness_Description', 'APR_Risk_Of_Mortality', 'APR_Medical_Surgical_Description', 'Payment_Typology_1', and 'Is_Emergency_Department_Indicator'. We considered using Backward Feature Selection (BFS) if leveraging the full feature set proved ineffective.
 
-Knowing that we needed to reduce the number of our variables possibly due to multicollinearity, we implemented code to check the VIF of each independent variable to identify variables with hihg multicollinearity. We also looked into a PCA approach by trying to find the optimal amount of variables. 
+Given that our target variable is numerical, we began with Lasso Regression and Random Forest Regression. The rationale for using Lasso was to create a streamlined model that identifies key features, maintaining simplicity while closely aligning training and testing $R^2$ scores. Conversely, we employed Random Forest Regression to explore the performance of a more complex model that might achieve a higher training $R^2$ score.
+
+Moreover, we turn our direction to applying classification algorithms, which would require the presence of a categorical target variable. To categorize our target variable, LOS, we employed K-means algorithm to cluster LOS values such that each LOS value has a corresponding cluster (category) representing a duration interval. We decided on the optimal number of clusters via Elbow Method.
+
+After categorizing the target variable, we proceeded with three classification algorithms: Decision Tree, Random Forest, and Support Vector Machines (SVM). Initial experiments guided our selection of hyperparameter ranges for further tuning. The hyperparameter tuning ranges are as follows:
+
+* Decision Tree $\rightarrow$ max_depth=[35, 45], min_samples_leaf=[1, 5], criterion=[entropy, gini] and splitter=[best,random]
+* Random Forest $\rightarrow$ max_depth=[35, 45], min_samples_leaf=[1, 5], criterion=[entropy, gini] and n_estimators=[28,32]
+* SVM $\rightarrow$ kernel=[linear, rbf, sigmoid, poly], degree=[2,3,4] (for polynomial kernel only) and decision_function_shape=['ovo','ovr']
+
+Considering the potential need to eliminate some features due to multicollinearity or excessive model complexity, we evaluated the Variance Inflation Factor (VIF) of each feature and considered a Principal Component Analysis (PCA) to determine the optimal number of features. Based on these analyses, we decided to implement BFS to determine if reducing the number of features could alleviate overfitting and enhance test performance.
+
 ## Results and Discussion
 
 ### Unsupervised Learning
