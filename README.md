@@ -128,7 +128,7 @@ We refer the reader to the 'kmeans_analysis.ipynb' to examine our efforts descri
 
 We began by applying Lasso and Random Forest regression algorithms to the numerical target variable. Initial testing identified the optimal penalty parameter, \lambda, for Lasso Regression as 0.001. For Random Forest Regression, we found that a configuration with a maximum tree depth of 40, a minimum of 1 data point required per leaf, a squared error splitting criterion, and 30 estimators works well. We present the Root Mean Square Error (RMSE) and R^2 results from these configurations in the following section.
 
-<img src="./images/reg-res.png" width="240" height="200">
+<img src="./images/reg-res.png" width="240" height="150">
 
 As anticipated and mentioned earlier, the simpler Lasso model yielded closely matched R^2 values for both the training and testing data. However, due to its complexity and resultant overfitting, the Random Forest Regression displayed significant discrepancies between the training and testing R^2 values. Although the training R^2 was impressively high, it could not be considered reliable due to the poor testing R^2 performance. Nevertheless, the RMSE scores were promising; for instance, Lasso achieved a test RMSE of 5.8 days, which is highly satisfactory given the LOS range of 1 to 119 days in our data set.
 
@@ -166,8 +166,10 @@ The results of the analysis suggested the possibility of omitting some variables
 
 Therefore, we implemented SVM one more time by disregarding these two features at the same time and obtained the following performance outputs, which did not exhibit a further improvement.
 
-
-
+* Accuracy: 0.592
+* Precision: 0.586
+* Recall: 0.592
+* F1-score: 0.574
 
 For a detailed examination of our efforts in this section, we direct the reader to the 'supervised_develop.ipynb' and 'supervised_analysis.ipynb' files.
 
