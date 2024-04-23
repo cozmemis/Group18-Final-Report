@@ -37,7 +37,7 @@ This predictive capability is vital for the hospital's capacity planning and res
 <span style="font-size:small; color:grey; font-style:italic;">Source:[Intermountain Healthcare](https://intermountainhealthcare.org/medical-specialties/behavioral-health/)</span>
 
 ## Data Preprocessing
-We start data preprocessing by discarding the unneccessary features and keeping only the useful ones. Among 32 features, we find 19 to be suitable, which are 'Age_Group', 'Gender', 'Race', 'Ethnicity', 'Type_Of_Admission', 'Diagnosis_Description', 'Procedure_Description', 'APR_DRG_Description', 'APR_MDC_Description', 'APR_Severity_Of_Illness_Description', 'APR_Risk_Of_Mortality', 'APR_Medical_Surgical_Description', 'Payment_Typology_1', 'Is_Emergency_Department_Indicator', 'Length_Of_Stay'. Here, 'Length_Of_Stay' stay denotes the target value that we are trying to predict with ML algorithms. Afterwards, we clean the data from missing information. As our dataset contains a vast amount of information, totaling 1,046,218 entries, we opted to eliminate any data points that possessed at least one missing feature. This process resulted in a remaining dataset of 764,953 data points.
+We start data preprocessing by discarding the unneccessary features and keeping only the useful ones. Among 32 features, we find 15 to be suitable, which are 'Age_Group', 'Gender', 'Race', 'Ethnicity', 'Type_Of_Admission', 'Diagnosis_Description', 'Procedure_Description', 'APR_DRG_Description', 'APR_MDC_Description', 'APR_Severity_Of_Illness_Description', 'APR_Risk_Of_Mortality', 'APR_Medical_Surgical_Description', 'Payment_Typology_1', 'Is_Emergency_Department_Indicator', 'Length_Of_Stay'. Here, 'Length_Of_Stay' stay denotes the target value that we are trying to predict with ML algorithms. Afterwards, we clean the data from missing information. As our dataset contains a vast amount of information, totaling 1,046,218 entries, we opted to eliminate any data points that possessed at least one missing feature. This process resulted in a remaining dataset of 764,953 data points.
 
 Later, we plotted the frequency of each unique entry for each data feature separately to identify any abnormal behavior. Initially, we observed that the 'Gender' feature had rarely occurring entries marked as 'U' for unknown. These unknown gender entries were discarded. Similarly, entries with 'Not Available' for the 'Type_Of_Admission' feature were also discarded.
 
@@ -96,6 +96,8 @@ After categorizing the target variable, we proceeded with three classification a
 
 Considering the potential need to eliminate some features due to multicollinearity or excessive model complexity, we evaluated the Variance Inflation Factor (VIF) of each feature and considered a Principal Component Analysis (PCA) to determine the optimal number of features. Based on these analyses, we decided to implement BFE to determine if reducing the number of features could alleviate overfitting and enhance test performance.
 
+For a detailed examination of our efforts in this section, we direct the reader to the 'supervised_develop.ipynb' file.
+
 ## Results and Discussion
 
 ### Unsupervised Learning
@@ -124,13 +126,9 @@ We refer the reader to the 'kmeans_analysis.ipynb' to examine our efforts descri
 
 ### Supervised Learning
 
-We began by applying Lasso and Random Forest regression algorithms to the numerical target variable. Initial testing identified the optimal penalty parameter, \lambda, for Lasso Regression as 0.001. For Random Forest Regression, we found that a configuration with a maximum tree depth of 40, a minimum of 1 data point required per leaf, a squared error splitting criterion, and 30 estimators works well. We present the Root Mean Square Error (RMSE) and R^2
-  results from these configurations in the following section.
+We began by applying Lasso and Random Forest regression algorithms to the numerical target variable. Initial testing identified the optimal penalty parameter, \lambda, for Lasso Regression as 0.001. For Random Forest Regression, we found that a configuration with a maximum tree depth of 40, a minimum of 1 data point required per leaf, a squared error splitting criterion, and 30 estimators works well. We present the Root Mean Square Error (RMSE) and R^2 results from these configurations in the following section.
 
-| **Method**         | **Train RMSE** | **Test RMSE** | **Train R2** | **Test R2** |
-|--------------------|----------------|---------------|--------------|-------------|
-| Lasso              | 6.0            | 5.8           | 0.44         | 0.41        |
-| Random Forest Reg. | 3.6            | 6.1           | 0.80         | 0.35        |
+<img src="./images/reg-res.png" width="240" height="200">
 
 As anticipated and mentioned earlier, the simpler Lasso model yielded closely matched R^2 values for both the training and testing data. However, due to its complexity and resultant overfitting, the Random Forest Regression displayed significant discrepancies between the training and testing R^2 values. Although the training R^2 was impressively high, it could not be considered reliable due to the poor testing R^2 performance. Nevertheless, the RMSE scores were promising; for instance, Lasso achieved a test RMSE of 5.8 days, which is highly satisfactory given the LOS range of 1 to 119 days in our data set.
 
@@ -149,23 +147,29 @@ When we applied the K-means algorithm with six clusters, it created well-defined
 
 Consequently,  we applied our classification algorithms using a newly created categorical target variable. We outlined the hyperparameter ranges for the Decision Tree, Random Forest, and SVM algorithms previously in the Methods section. We then conducted a search across varying hyperparameters for each algorithm, and the results are displayed in the subsequent tables. To save space in the report, we sorted the search outcomes by Accuracy scores and included only the top 12 rows for each table.
 
-<img src="./images/decison-tree-res.png" width="320" height="300">
+<img src="./images/decison-tree-res.png" width="340" height="300">
 
-<img src="./images/random-forest-res.png" width="320" height="300">
+<img src="./images/random-forest-res.png" width="340" height="300">
 
-<img src="./images/svm-res.png" width="300" height="320">
+<img src="./images/svm-res.png" width="340" height="300">
 
 According to the tables, the best performing method is SVM, either with a Radial Basis Function kernel or a Polynomial kernel of degree 2. These configurations yielded the highest results across all performance metrics, including Accuracy, Precision, Recall, and F1 Score.
 
 Additionally, we explored the appropriateness of utilizing all available features in our model. To this end, we conducted a PCA analysis on our dataset to assess the explained variance contributed by each component:
 
-<img src="./images/pca_explained_variance.png" width="400" height="300">
+<img src="./images/pca_explained_variance.png" width="420" height="300">
 
 
-The results of the analysis suggested the possibility of omitting some variables. Consequently, we employed BFE to evaluate the impact of reducing the number of independent features used. However, the initial phase of BFE demonstrated that eliminating any of the features did not yield better results, as shown in the table below. Therefore, we decided to continue using all available features.
+The results of the analysis suggested the possibility of omitting some variables. Consequently, we employed BFE to evaluate the impact of reducing the number of independent features used. At the first stage, we tried discarding one feature at a time and observed the changes in the performance metrics. As provided in the table below, discarding the features 'APR_MDC_Description' and 'APR_Medical_Surgical_Description' provided better outcomes overall.
+
+<img src="./images/bfe-res.png" width="340" height="300">
+
+Therefore, we implemented SVM one more time by disregarding these two features at the same time and obtained the following performance outputs, which did not exhibit a further improvement.
 
 
 
+
+For a detailed examination of our efforts in this section, we direct the reader to the 'supervised_develop.ipynb' and 'supervised_analysis.ipynb' files.
 
 ### Next Steps
 Moving forward, our next step would involve implementing a more sophisticated algorithm, such as a Neural Network, to further improve the performance metrics. Although the existing metrics are satisfactory, they are not ideal.
