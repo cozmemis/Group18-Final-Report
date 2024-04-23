@@ -136,7 +136,7 @@ As anticipated and mentioned earlier, the simpler Lasso model yielded closely ma
 
 In the subsequent phase, we explored the use of a categorized dependent variable. This was because the difference between close LOS values, such as 55 and 58 days, does not significantly impact long-term capacity planning decisions; such distinctions are more relevant over periods longer than two months. However, the categorization of shorter LOS values required careful consideration due to their implications for short-term decision-making. To address this, we applied the K-means algorithm to optimally cluster and categorize the numerical LOS values. Using the Elbow Method, we determined that the optimal number of clusters was **six**.
 
-<img src="./images/elbow.png" width="400" height="400"> 
+<img src="./images/elbow.png" width="400" height="300"> 
 
 When we applied the K-means algorithm with six clusters, it created well-defined divisions for the numerical LOS values, yielding reasonable ranges that align with both short-term and long-term decision-making needs. The categorized LOS labels are outlined below.
 
@@ -149,9 +149,11 @@ When we applied the K-means algorithm with six clusters, it created well-defined
 
 Consequently, we implemented our classification algorithms with newly generated categorical target variable. The hyperparameter ranges for Decision Tree, Random Forest and SVM algorithm are provided earlier in the Methods section. Conducting a search for different hyperparameters for each method yielded results given in the following tables. In order to save space in the report, we sorted the search results according to Accuracy scores and provided the first 12 rows for each table.
 
-<img src="./images/decision-tree-res.png" width="300" height="500">
-<img src="./images/random-forest-res.png" width="300" height="500">
-<img src="./images/-svm-res.png" width="300" height="500">
+<img src="./images/decison-tree-res.png" width="300" height="400">
+
+<img src="./images/random-forest-res.png" width="300" height="400">
+
+<img src="./images/svm-res.png" width="300" height="400">
 
 As given by the tables, the best performing method is SVM with a Radial Basis Function kernel or a Polynomial kernel with degree 2. With these configurations SVM provided the best outcomes in terms of all performance metrics including Accuracy, Precision, Recall and F1.
 
