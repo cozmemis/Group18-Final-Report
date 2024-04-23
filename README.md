@@ -80,7 +80,7 @@ For a detailed examination of our efforts in this section, we direct the reader 
 
 ### Supervised Learning
 
-Initially, we utilized all available features for our supervised learning projects, including 'Age_Group', 'Gender', 'Race', 'Type_Of_Admission', 'Diagnosis_Description', 'Procedure_Description', 'APR_DRG_Description', 'APR_MDC_Description', 'APR_Severity_Of_Illness_Description', 'APR_Risk_Of_Mortality', 'APR_Medical_Surgical_Description', 'Payment_Typology_1', and 'Is_Emergency_Department_Indicator'. We considered using Backward Feature Selection (BFS) if leveraging the full feature set proved ineffective.
+Initially, we utilized all available features for our supervised learning projects, including 'Age_Group', 'Gender', 'Race', 'Type_Of_Admission', 'Diagnosis_Description', 'Procedure_Description', 'APR_DRG_Description', 'APR_MDC_Description', 'APR_Severity_Of_Illness_Description', 'APR_Risk_Of_Mortality', 'APR_Medical_Surgical_Description', 'Payment_Typology_1', and 'Is_Emergency_Department_Indicator'. We considered using Backward Feature Elimination (BFE) if leveraging the full feature set proved ineffective.
 
 Given that our target variable is numerical, we began with Lasso Regression and Random Forest Regression. The rationale for using Lasso was to create a streamlined model that identifies key features, maintaining simplicity while closely aligning training and testing R^2 scores. Conversely, we employed Random Forest Regression to explore the performance of a more complex model that might achieve a higher training R^2 score.
 
@@ -94,7 +94,7 @@ After categorizing the target variable, we proceeded with three classification a
   
 * SVM &rarr; 'Kernel'=[linear, rbf, sigmoid, poly], 'Polynomial degree'=[2,3,4] (for polynomial kernel only) and 'Decision function shape'=[One-vs-one,One-vs-rest]
 
-Considering the potential need to eliminate some features due to multicollinearity or excessive model complexity, we evaluated the Variance Inflation Factor (VIF) of each feature and considered a Principal Component Analysis (PCA) to determine the optimal number of features. Based on these analyses, we decided to implement BFS to determine if reducing the number of features could alleviate overfitting and enhance test performance.
+Considering the potential need to eliminate some features due to multicollinearity or excessive model complexity, we evaluated the Variance Inflation Factor (VIF) of each feature and considered a Principal Component Analysis (PCA) to determine the optimal number of features. Based on these analyses, we decided to implement BFE to determine if reducing the number of features could alleviate overfitting and enhance test performance.
 
 ## Results and Discussion
 
@@ -147,29 +147,28 @@ When we applied the K-means algorithm with six clusters, it created well-defined
 * 'days: 30-56'
 * 'days: 57-116'
 
-Consequently, we implemented our classification algorithms with newly generated categorical target variable. The hyperparameter ranges for Decision Tree, Random Forest and SVM algorithm are provided earlier in the Methods section. Conducting a search for different hyperparameters for each method yielded results given in the following tables. In order to save space in the report, we sorted the search results according to Accuracy scores and provided the first 12 rows for each table.
+Consequently,  we applied our classification algorithms using a newly created categorical target variable. We outlined the hyperparameter ranges for the Decision Tree, Random Forest, and SVM algorithms previously in the Methods section. We then conducted a search across varying hyperparameters for each algorithm, and the results are displayed in the subsequent tables. To save space in the report, we sorted the search outcomes by Accuracy scores and included only the top 12 rows for each table.
 
-<img src="./images/decison-tree-res.png" width="300" height="400">
+<img src="./images/decison-tree-res.png" width="300" height="300">
 
-<img src="./images/random-forest-res.png" width="300" height="400">
+<img src="./images/random-forest-res.png" width="300" height="300">
 
-<img src="./images/svm-res.png" width="300" height="400">
+<img src="./images/svm-res.png" width="300" height="300">
 
-As given by the tables, the best performing method is SVM with a Radial Basis Function kernel or a Polynomial kernel with degree 2. With these configurations SVM provided the best outcomes in terms of all performance metrics including Accuracy, Precision, Recall and F1.
+According to the tables, the best performing method is SVM, either with a Radial Basis Function kernel or a Polynomial kernel of degree 2. These configurations yielded the highest results across all performance metrics, including Accuracy, Precision, Recall, and F1 Score.
 
-
-We also performed PCA analysis on our dataset, finding the explained variance associated with each component:
+Additionally, we explored the appropriateness of utilizing all available features in our model. To this end, we conducted a PCA analysis on our dataset to assess the explained variance contributed by each component:
 
 <img src="./images/pca_explained_variance.png">
 
 
+The results of the analysis suggested the possibility of omitting some variables. Consequently, we employed BFE to evaluate the impact of reducing the number of independent features used. However, the initial phase of BFE demonstrated that eliminating any of the features did not yield better results, as shown in the table below. Therefore, we decided to continue using all available features.
 
 
 
 
 ### Next Steps
-In the remainder of the project, we will create additional unsupervised and supervised learning algorithms and assess their performances through comparison.
-We will also perform further investigation into feature selection to address multi-collinearity and will additionally fine tune our existing models.
+Moving forward, our next step would involve implementing a more sophisticated algorithm, such as a Neural Network, to further improve the performance metrics. Although the existing metrics are satisfactory, they are not ideal.
 
 ## References
 
