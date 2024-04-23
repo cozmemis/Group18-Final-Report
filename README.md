@@ -82,15 +82,17 @@ For a detailed examination of our efforts in this section, we direct the reader 
 
 Initially, we utilized all available features for our supervised learning projects, including 'Age_Group', 'Gender', 'Race', 'Type_Of_Admission', 'Diagnosis_Description', 'Procedure_Description', 'APR_DRG_Description', 'APR_MDC_Description', 'APR_Severity_Of_Illness_Description', 'APR_Risk_Of_Mortality', 'APR_Medical_Surgical_Description', 'Payment_Typology_1', and 'Is_Emergency_Department_Indicator'. We considered using Backward Feature Selection (BFS) if leveraging the full feature set proved ineffective.
 
-Given that our target variable is numerical, we began with Lasso Regression and Random Forest Regression. The rationale for using Lasso was to create a streamlined model that identifies key features, maintaining simplicity while closely aligning training and testing $R^2$ scores. Conversely, we employed Random Forest Regression to explore the performance of a more complex model that might achieve a higher training $R^2$ score.
+Given that our target variable is numerical, we began with Lasso Regression and Random Forest Regression. The rationale for using Lasso was to create a streamlined model that identifies key features, maintaining simplicity while closely aligning training and testing R^2 scores. Conversely, we employed Random Forest Regression to explore the performance of a more complex model that might achieve a higher training R^2 score.
 
 Moreover, we turn our direction to applying classification algorithms, which would require the presence of a categorical target variable. To categorize our target variable, LOS, we employed K-means algorithm to cluster LOS values such that each LOS value has a corresponding cluster (category) representing a duration interval. We decided on the optimal number of clusters via Elbow Method.
 
 After categorizing the target variable, we proceeded with three classification algorithms: Decision Tree, Random Forest, and Support Vector Machines (SVM). Initial experiments guided our selection of hyperparameter ranges for further tuning. The hyperparameter tuning ranges are as follows:
 
-* Decision Tree $\rightarrow$ max_depth=[35, 45], min_samples_leaf=[1, 5], criterion=[entropy, gini] and splitter=[best,random]
-* Random Forest $\rightarrow$ max_depth=[35, 45], min_samples_leaf=[1, 5], criterion=[entropy, gini] and n_estimators=[28,32]
-* SVM $\rightarrow$ kernel=[linear, rbf, sigmoid, poly], degree=[2,3,4] (for polynomial kernel only) and decision_function_shape=['ovo','ovr']
+* Decision Tree &rarr; 'Maximum depth of the tree'=[35, 45], 'Minimum required data Points on a leaf'=[1, 5], 'Splitting criterion'=[entropy, gini] and 'Splitting point'=[best,random]
+  
+* Random Forest &rarr; 'Maximum depth of the tree'=[35, 45], 'Minimum required data Points on a leaf'=[1, 5], 'Splitting criterion'=[entropy, gini] and 'Number of estimators'=[28,32]
+  
+* SVM &rarr; 'Kernel'=[linear, rbf, sigmoid, poly], 'Polynomial degree'=[2,3,4] (for polynomial kernel only) and 'Decision function shape'=[One-vs-one,One-vs-rest]
 
 Considering the potential need to eliminate some features due to multicollinearity or excessive model complexity, we evaluated the Variance Inflation Factor (VIF) of each feature and considered a Principal Component Analysis (PCA) to determine the optimal number of features. Based on these analyses, we decided to implement BFS to determine if reducing the number of features could alleviate overfitting and enhance test performance.
 
@@ -122,16 +124,36 @@ We refer the reader to the 'kmeans_analysis.ipynb' to examine our efforts descri
 
 ### Supervised Learning
 
-The $R^2$ value for the regular linear regression model was only about 0.4.
-Only 40% of the variation being explained by our model is not sufficient at all, but most likely due to multicollinearity from the sheer number of independent variables.
+We began by applying Lasso and Random Forest regression algorithms to the numerical target variable. Initial testing identified the optimal penalty parameter, \lambda, for Lasso Regression as 0.001. For Random Forest Regression, we found that a configuration with a maximum tree depth of 40, a minimum of 1 data point required per leaf, a squared error splitting criterion, and 30 estimators works well. We present the Root Mean Square Error (RMSE) and R^2
+  results from these configurations in the following section.
 
-<img src="./images/ols_residuals.png">
-<img src="./images/ols_qq.png">
+| **Method**         | **Train RMSE** | **Test RMSE** | **Train R2** | **Test R2** |
+|--------------------|----------------|---------------|--------------|-------------|
+| Lasso              | 6.0            | 5.8           | 0.44         | 0.41        |
+| Random Forest Reg. | 3.6            | 6.1           | 0.80         | 0.35        |
 
-We also implemented a Random Forest model, which yielded much better results with an $R^2$ of 0.74.
+As anticipated and mentioned earlier, the simpler Lasso model yielded closely matched R^2 values for both the training and testing data. However, due to its complexity and resultant overfitting, the Random Forest Regression displayed significant discrepancies between the training and testing R^2 values. Although the training R^2 was impressively high, it could not be considered reliable due to the poor testing R^2 performance. Nevertheless, the RMSE scores were promising; for instance, Lasso achieved a test RMSE of 5.8 days, which is highly satisfactory given the LOS range of 1 to 119 days in our data set.
 
-<img src="./images/rf_residuals.png">
-<img src="./images/rf_qq.png">
+In the subsequent phase, we explored the use of a categorized dependent variable. This was because the difference between close LOS values, such as 55 and 58 days, does not significantly impact long-term capacity planning decisions; such distinctions are more relevant over periods longer than two months. However, the categorization of shorter LOS values required careful consideration due to their implications for short-term decision-making. To address this, we applied the K-means algorithm to optimally cluster and categorize the numerical LOS values. Using the Elbow Method, we determined that the optimal number of clusters was **six**.
+
+<img src="./images/elbow.png" width="400" height="400"> 
+
+When we applied the K-means algorithm with six clusters, it created well-defined divisions for the numerical LOS values, yielding reasonable ranges that align with both short-term and long-term decision-making needs. The categorized LOS labels are outlined below.
+
+* 'days: 1-2'
+* 'days: 3-7'
+* 'days: 8-15'
+* 'days: 16-29'
+* 'days: 30-56'
+* 'days: 57-116'
+
+Consequently, we implemented our classification algorithms with newly generated categorical target variable. The hyperparameter ranges for Decision Tree, Random Forest and SVM algorithm are provided earlier in the Methods section. Conducting a search for different hyperparameters for each method yielded results given in the following tables. In order to save space in the report, we sorted the search results according to Accuracy scores and provided the first 12 rows for each table.
+
+<img src="./images/decision-tree-res.png" width="300" height="500">
+<img src="./images/random-forest-res.png" width="300" height="500">
+<img src="./images/-svm-res.png" width="300" height="500">
+
+As given by the tables, the best performing method is SVM with a Radial Basis Function kernel or a Polynomial kernel with degree 2. With these configurations SVM provided the best outcomes in terms of all performance metrics including Accuracy, Precision, Recall and F1.
 
 
 We also performed PCA analysis on our dataset, finding the explained variance associated with each component:
@@ -139,12 +161,7 @@ We also performed PCA analysis on our dataset, finding the explained variance as
 <img src="./images/pca_explained_variance.png">
 
 
-Ultimately, our supervised learning results show that it is possible to use regression models to predict the length of stay as a continuous variable (not in clusters) with reasonable accuracy.
-This provides more granular and fine-grained planning capabilities to hospitals.
-However, there is still a lot of work that needs to be done.
-First, we need to address the problem of multi-collinearity from the number of duplicate variables we have.
-In the future, we could try Lasso Regression to decrease the number of variables. We could also implement a forward or backward feature selection algorithm to help fine tune our regression models.
-PCA analysis can also be further explored, to reduce the dimensionality of our dataset.
+
 
 
 
@@ -209,9 +226,9 @@ https://doi.org/10.1093/jamia/ocv106
 
 | Name               | Contribution                                                                                             |
 |--------------------|----------------------------------------------------------------------------------------------------------|
-| Cagri Ozmemis      | Data Preprocessing, Unsupervised Learning algorithm development                                          |
-| Hardik D. Patel    | Data Preprocessing, Supervised Learning algorithm development                                            |
-| Varun Ramakrishnan | Data Visualization, Supervised Learning algorithm development                                            |
+| Cagri Ozmemis      | Supervised Learning algorithm development                                          |
+| Hardik D. Patel    | Supervised Learning algorithm development                                            |
+| Varun Ramakrishnan | Unsupervised Learning algorithm development                                            |
 | Max T. Pan         | -                                                                                                        |
 
 ### Gantt Chart
