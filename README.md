@@ -149,17 +149,17 @@ When we applied the K-means algorithm with six clusters, it created well-defined
 
 Consequently,  we applied our classification algorithms using a newly created categorical target variable. We outlined the hyperparameter ranges for the Decision Tree, Random Forest, and SVM algorithms previously in the Methods section. We then conducted a search across varying hyperparameters for each algorithm, and the results are displayed in the subsequent tables. To save space in the report, we sorted the search outcomes by Accuracy scores and included only the top 12 rows for each table.
 
-<img src="./images/decison-tree-res.png" width="300" height="300">
+<img src="./images/decison-tree-res.png" width="320" height="300">
 
-<img src="./images/random-forest-res.png" width="300" height="300">
+<img src="./images/random-forest-res.png" width="320" height="300">
 
-<img src="./images/svm-res.png" width="300" height="300">
+<img src="./images/svm-res.png" width="300" height="320">
 
 According to the tables, the best performing method is SVM, either with a Radial Basis Function kernel or a Polynomial kernel of degree 2. These configurations yielded the highest results across all performance metrics, including Accuracy, Precision, Recall, and F1 Score.
 
 Additionally, we explored the appropriateness of utilizing all available features in our model. To this end, we conducted a PCA analysis on our dataset to assess the explained variance contributed by each component:
 
-<img src="./images/pca_explained_variance.png">
+<img src="./images/pca_explained_variance.png" width="300" height="200">
 
 
 The results of the analysis suggested the possibility of omitting some variables. Consequently, we employed BFE to evaluate the impact of reducing the number of independent features used. However, the initial phase of BFE demonstrated that eliminating any of the features did not yield better results, as shown in the table below. Therefore, we decided to continue using all available features.
