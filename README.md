@@ -159,7 +159,7 @@ According to the tables, the best performing method is SVM, either with a Radial
 
 Additionally, we explored the appropriateness of utilizing all available features in our model. To this end, we conducted a PCA analysis on our dataset to assess the explained variance contributed by each component:
 
-<img src="./images/pca_explained_variance.png" width="300" height="200">
+<img src="./images/pca_explained_variance.png" width="400" height="300">
 
 
 The results of the analysis suggested the possibility of omitting some variables. Consequently, we employed BFE to evaluate the impact of reducing the number of independent features used. However, the initial phase of BFE demonstrated that eliminating any of the features did not yield better results, as shown in the table below. Therefore, we decided to continue using all available features.
