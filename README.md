@@ -236,7 +236,6 @@ https://doi.org/10.1093/jamia/ocv106
 | Cagri Ozmemis      | Supervised Learning algorithm development                                          |
 | Hardik D. Patel    | Supervised Learning algorithm development                                            |
 | Varun Ramakrishnan | Unsupervised Learning algorithm development                                            |
-| Max T. Pan         | -                                                                                                        |
 
 ### Gantt Chart
 
